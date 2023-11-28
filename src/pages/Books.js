@@ -145,6 +145,7 @@ const Books = () => {
       genre: "Philosophical Fiction",
     },
   ]);
+
   return (
     <div className="p-4 bg-base-200">
       <h1 className="text-center font-bold text-xl">Books in the collection</h1>

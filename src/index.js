@@ -9,6 +9,10 @@ import Books from "./pages/Books";
 import BookDetails from "./pages/BookDetails";
 import AddBook from "./pages/AddBook";
 import EditBook from "./pages/EditBook";
+import Login from "./pages/Login";
+import Registration from "./pages/Registration";
+import AuthProvider from "./contexts/AuthProvider";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,19 +25,43 @@ const router = createBrowserRouter([
       },
       {
         path: "books",
-        element: <Books></Books>,
+        element: (
+          <ProtectedRoute>
+            <Books></Books>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "books/:bookId",
-        element: <BookDetails></BookDetails>,
+        element: (
+          <ProtectedRoute>
+            <BookDetails></BookDetails>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "addBook",
-        element: <AddBook></AddBook>,
+        element: (
+          <ProtectedRoute>
+            <AddBook></AddBook>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "editBook",
-        element: <EditBook></EditBook>,
+        element: (
+          <ProtectedRoute>
+            <EditBook></EditBook>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Registration></Registration>,
       },
     ],
   },
@@ -42,7 +70,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
 
