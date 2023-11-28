@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const BookForm = () => {
+const AddBook = () => {
   const navigate = useNavigate();
   const handleAddBook = (event) => {
     event.preventDefault();
@@ -84,4 +84,4 @@ const BookForm = () => {
   );
 };
 
-export default BookForm;
+export default AddBook;

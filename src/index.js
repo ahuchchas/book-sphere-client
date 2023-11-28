@@ -7,7 +7,8 @@ import Main from "./layouts/Main";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
 import BookDetails from "./pages/BookDetails";
-import BookForm from "./pages/BookForm";
+import AddBook from "./pages/AddBook";
+import EditBook from "./pages/EditBook";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "addBook",
-        element: <BookForm></BookForm>,
+        element: <AddBook></AddBook>,
+      },
+      {
+        path: "editBook",
+        element: <EditBook></EditBook>,
       },
     ],
   },

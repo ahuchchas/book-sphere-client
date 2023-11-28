@@ -150,7 +150,7 @@ const Books = () => {
       <h1 className="text-center font-bold text-xl">Books in the collection</h1>
       <div className="m-4 mx-auto grid lg:grid-cols-2 gap-4 max-w-screen-md">
         {books.map((book) => (
-          <div className="card w-96 bg-base-100 shadow-xl">
+          <div key={book._id} className="card w-96 bg-base-100 shadow-xl">
             <div className="card-body">
               <h2 className="card-title">{book.title}</h2>
               <p className=" font-semibold">Author: {book.author}</p>

@@ -1,8 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const BookDetails = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const book = location.state;
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -28,7 +29,12 @@ const BookDetails = () => {
             {book.publishedYear}
           </p>
           <div className="flex justify-between py-8">
-            <button className="btn btn-neutral w-[100px]">Edit</button>
+            <button
+              className="btn btn-neutral w-[100px]"
+              onClick={() => navigate("/editBook", { state: book })}
+            >
+              Edit
+            </button>
             <button className="btn btn-error w-[100px] ml-4">Delete</button>
           </div>
         </div>
