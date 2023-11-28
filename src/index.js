@@ -7,6 +7,7 @@ import Main from "./layouts/Main";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
 import BookDetails from "./pages/BookDetails";
+import BookForm from "./pages/BookForm";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "books/:bookId",
         element: <BookDetails></BookDetails>,
+      },
+      {
+        path: "addBook",
+        element: <BookForm></BookForm>,
       },
     ],
   },
