@@ -9,6 +9,11 @@ const Header = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
+        <img
+          src={require("./books.png")}
+          alt="logo"
+          className="w-[60px] rounded-full"
+        />
         <Link
           to={"/"}
           className="btn btn-ghost text-2xl font-bold text-emerald-950"

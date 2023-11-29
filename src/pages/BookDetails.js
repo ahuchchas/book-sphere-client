@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { serverUrl } from "../serverUrl";
 
 const BookDetails = () => {
   const location = useLocation();
@@ -35,7 +36,22 @@ const BookDetails = () => {
             >
               Edit
             </button>
-            <button className="btn btn-error w-[100px] ml-4">Delete</button>
+            <button
+              className="btn btn-error w-[100px] ml-4"
+              onClick={() => {
+                fetch(`${serverUrl}/books/delete/${book._id}`, {
+                  method: "DELETE",
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    console.log(data);
+                    alert("book deleted");
+                    navigate("/books");
+                  });
+              }}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>

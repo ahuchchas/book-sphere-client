@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { serverUrl } from "../serverUrl";
+import { authCtx } from "../contexts/AuthProvider";
 
 const EditBook = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const oldbook = location.state;
+  const { user } = useContext(authCtx);
   const handleEditBook = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -12,7 +15,28 @@ const EditBook = () => {
     const author = form.author.value;
     const genre = form.genre.value;
     const publishedYear = form.publishedYear.value;
-    console.log(title, author, genre, publishedYear);
+    // console.log(title, author, genre, publishedYear);
+
+    const book = {
+      title: title,
+      author: author,
+      genre: genre,
+      publishedYear: publishedYear,
+      user: user.email,
+    };
+    fetch(`${serverUrl}/books/update/${oldbook._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(book),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        alert("book updated");
+        navigate("/books");
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200">

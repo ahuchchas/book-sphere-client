@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }) => {
   useEffect(() => {
     if (!user) {
       //   alert("Please login to continue!");
-      return navigate("/login", { replace: true });
+      return navigate("/login");
     }
   }, []);
   return children;
