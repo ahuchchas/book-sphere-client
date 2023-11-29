@@ -183,25 +183,26 @@ const Books = () => {
   return (
     <div className="p-4 bg-base-200">
       <h1 className="text-center font-bold text-xl">Books in the collection</h1>
-      <input
-        type="text"
-        className="border border-black m-2"
-        placeholder="Search by Title"
-        onChange={filterByTitle}
-      />
-      <input
-        type="text"
-        className="border border-green-900 m-2"
-        placeholder="Search by Author"
-        onChange={filterByAuthor}
-      />
-      <br />
-      <input
-        type="text"
-        className="border border-blue-900 m-2"
-        placeholder="Search by Genre"
-        onChange={filterByGenre}
-      />
+      <div className="flex justify-center">
+        <input
+          type="text"
+          className="border border-black m-2 p-1 rounded"
+          placeholder="Search by Title"
+          onChange={filterByTitle}
+        />
+        <input
+          type="text"
+          className="border border-green-900 m-2 p-1 rounded"
+          placeholder="Search by Author"
+          onChange={filterByAuthor}
+        />
+        <input
+          type="text"
+          className="border border-blue-900 m-2 p-1 rounded"
+          placeholder="Search by Genre"
+          onChange={filterByGenre}
+        />
+      </div>
       <div className="m-4 mx-auto grid lg:grid-cols-2 gap-4 max-w-screen-md">
         {records.map((book) => (
           <div key={book._id} className="card w-96 bg-base-100 shadow-xl">
