@@ -5,148 +5,7 @@ import { authCtx } from "./../contexts/AuthProvider";
 
 const Books = () => {
   const navigate = useNavigate();
-  // const [books, setBooks] = useState([
-  //   {
-  //     _id: 1,
-  //     title: "The Catcher in the Rye",
-  //     author: "J.D. Salinger",
-  //     publishedYear: 1951,
-  //     genre: "Fiction",
-  //   },
-  //   {
-  //     _id: 2,
-  //     title: "To Kill a Mockingbird",
-  //     author: "Harper Lee",
-  //     publishedYear: 1960,
-  //     genre: "Fiction",
-  //   },
-  //   {
-  //     _id: 3,
-  //     title: "1984",
-  //     author: "George Orwell",
-  //     publishedYear: 1949,
-  //     genre: "Dystopian",
-  //   },
-  //   {
-  //     _id: 4,
-  //     title: "The Great Gatsby",
-  //     author: "F. Scott Fitzgerald",
-  //     publishedYear: 1925,
-  //     genre: "Classic",
-  //   },
-  //   {
-  //     _id: 5,
-  //     title: "The Hobbit",
-  //     author: "J.R.R. Tolkien",
-  //     publishedYear: 1937,
-  //     genre: "Fantasy",
-  //   },
-  //   {
-  //     _id: 6,
-  //     title: "Pride and Prejudice",
-  //     author: "Jane Austen",
-  //     publishedYear: 1813,
-  //     genre: "Romance",
-  //   },
-  //   {
-  //     _id: 7,
-  //     title: "The Lord of the Rings",
-  //     author: "J.R.R. Tolkien",
-  //     publishedYear: 1954,
-  //     genre: "Fantasy",
-  //   },
-  //   {
-  //     _id: 8,
-  //     title: "Harry Potter and the Sorcerer's Stone",
-  //     author: "J.K. Rowling",
-  //     publishedYear: 1997,
-  //     genre: "Fantasy",
-  //   },
-  //   {
-  //     _id: 9,
-  //     title: "Brave New World",
-  //     author: "Aldous Huxley",
-  //     publishedYear: 1932,
-  //     genre: "Dystopian",
-  //   },
-  //   {
-  //     _id: 10,
-  //     title: "The Da Vinci Code",
-  //     author: "Dan Brown",
-  //     publishedYear: 2003,
-  //     genre: "Mystery",
-  //   },
-  //   {
-  //     _id: 11,
-  //     title: "The Shining",
-  //     author: "Stephen King",
-  //     publishedYear: 1977,
-  //     genre: "Horror",
-  //   },
-  //   {
-  //     _id: 12,
-  //     title: "The Hunger Games",
-  //     author: "Suzanne Collins",
-  //     publishedYear: 2008,
-  //     genre: "Dystopian",
-  //   },
-  //   {
-  //     _id: 13,
-  //     title: "Moby-Dick",
-  //     author: "Herman Melville",
-  //     publishedYear: 1851,
-  //     genre: "Adventure",
-  //   },
-  //   {
-  //     _id: 14,
-  //     title: "The Chronicles of Narnia",
-  //     author: "C.S. Lewis",
-  //     publishedYear: 1950,
-  //     genre: "Fantasy",
-  //   },
-  //   {
-  //     _id: 15,
-  //     title: "One Hundred Years of Solitude",
-  //     author: "Gabriel García Márquez",
-  //     publishedYear: 1967,
-  //     genre: "Magical Realism",
-  //   },
-  //   {
-  //     _id: 16,
-  //     title: "Frankenstein",
-  //     author: "Mary Shelley",
-  //     publishedYear: 1818,
-  //     genre: "Gothic Fiction",
-  //   },
-  //   {
-  //     _id: 17,
-  //     title: "The Road",
-  //     author: "Cormac McCarthy",
-  //     publishedYear: 2006,
-  //     genre: "Post-Apocalyptic",
-  //   },
-  //   {
-  //     _id: 18,
-  //     title: "The Girl with the Dragon Tattoo",
-  //     author: "Stieg Larsson",
-  //     publishedYear: 2005,
-  //     genre: "Mystery",
-  //   },
-  //   {
-  //     _id: 19,
-  //     title: "Wuthering Heights",
-  //     author: "Emily Brontë",
-  //     publishedYear: 1847,
-  //     genre: "Gothic Fiction",
-  //   },
-  //   {
-  //     _id: 20,
-  //     title: "The Alchemist",
-  //     author: "Paulo Coelho",
-  //     publishedYear: 1988,
-  //     genre: "Philosophical Fiction",
-  //   },
-  // ]);
+
   const [books, setBooks] = useState([]);
   const [records, setRecords] = useState([]);
   const { user } = useContext(authCtx);
@@ -179,6 +38,16 @@ const Books = () => {
       )
     );
   };
+
+  if (books.length === 0) {
+    return (
+      <div className=" w-full min-h-screen flex justify-center items-center">
+        <span className=" font-bold text-xl">
+          There is no books in your collection!
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div className="p-4 bg-base-200">
