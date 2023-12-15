@@ -7,11 +7,6 @@ const ProtectedRoute = ({ children }) => {
   //   console.log(user?.email);
   const navigate = useNavigate();
 
-  if (!user) {
-    //   alert("Please login to continue!");
-    return navigate("/login");
-  }
-
   if (loading) {
     return (
       <div className=" w-full min-h-screen flex justify-center items-center">
@@ -19,6 +14,12 @@ const ProtectedRoute = ({ children }) => {
       </div>
     );
   }
+
+  if (!user) {
+    //   alert("Please login to continue!");
+    return navigate("/login");
+  }
+
   return children;
 };
 
